@@ -6,103 +6,122 @@ class CarsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return FadeAnimation(
-      delay: 1.5,
-      child: GridView.builder(
+    return Container(
+      height: size.height * 0.35,
+      width: size.width * 1,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
         itemCount: cars.length,
-        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12.0,
-            mainAxisSpacing: 15.0,
-            childAspectRatio: 0.85),
         itemBuilder: (context, index) {
-          return FadeAnimation(
-            delay: 2,
-            child: GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CarsDetail(cardata: index),
-                  )),
-              child: Material(
-                animationDuration: Duration(seconds: 1),
-                elevation: 5,
-                borderRadius: BorderRadius.circular(8),
-                child: Container(
-                  height: size.height * 0.4,
-                  width: size.width * 0.43,
-                  decoration: BoxDecoration(
-                      color: cars[index].backcolor,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Column(
-                    children: [
-                      FadeAnimation(
-                        delay: 2,
-                        child: Container(
-                            width: size.width,
-                            child: Center(
-                                child: Image.asset(
-                              cars[index].image,
-                              fit: BoxFit.cover,
-                            ))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0, top: 8.0),
-                        child: FadeAnimation(
-                          delay: 2.2,
-                          child: Row(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    cars[index].modelname,
-                                    style: AppText.extra(Colors.black, 16.0),
-                                    maxLines: 2,
-                                  ),
-                                  Text("\$${cars[index].price.toString()}",
-                                      style: AppText.extra(Colors.black, 14.0)),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 6.0, right: 10.0),
-                        child: FadeAnimation(
-                          delay: 2.2,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Icon(
-                                Icons.favorite_outline_rounded,
-                                color: Colors.red,
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xfff2B4C59),
-                                child: Center(
-                                  child: Icon(
-                                    Icons.arrow_forward,
-                                    color: Colors.white,
-                                    size: 15,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
+          return GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CarsDetail(cardata: index),
+                )),
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 6.0, vertical: 8.0),
+              height: size.height * 0.1,
+              width: size.width * 0.55,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Material(
+                    elevation: 5,
+                    color: cars[index].backcolor,
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      margin: EdgeInsets.all(6.0),
+                      height: size.height * 0.3,
+                      width: size.width * 0.55,
+                      decoration: BoxDecoration(
+                          color: cars[index].backcolor,
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
                   ),
-                ),
+                  Positioned(
+                    right: 0,
+                    top: 10,
+                    left: 30,
+                    child: FadeAnimation(
+                        delay: 1, child: Hero(
+                          tag: cars[index].image,
+                          child: Image.asset(cars[index].image))),
+                    height: size.height * 0.12,
+                  ),
+                  Positioned(
+                      left: 20,
+                      top: 120,
+                      child: FadeAnimation(
+                        delay: 1.5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              cars[index].modelname,
+                              style: AppText.extra(Colors.black, 16.0),
+                            ),
+                            Text(
+                             "\$${cars[index].price.toString()} / day",
+                              style: AppText.extra(Colors.black, 13.0),
+                            )
+                          ],
+                        ),
+                      )),
+                  Positioned(
+                      bottom: 20,
+                      right: 20,
+                      child: FadeAnimation(
+                        delay: 1.8,
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.favorite_border,
+                              color: Colors.red,
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            CircleAvatar(
+                              radius: 15,
+                              backgroundColor: Color(0xfff2B4C59),
+                              child: Icon(
+                                Icons.arrow_forward,
+                                size: 18,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      )),
+                  Positioned(
+                    top: 0,
+                    left: 14,
+                    child: Material(
+                      color: Color(0xfff2B4C59),
+                      elevation: 2,
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6), bottomRight: Radius.circular(6)),
+                      child: Container(
+                        height: 80,
+                        width: 25,
+                        child: FadeAnimation(
+                          delay: 1,
+                          child: FittedBox(
+                            child: RotatedBox(
+                              quarterTurns: -1,
+                              child: Center(
+                                child: Text("Discount",
+                                style: AppText.extra(Colors.white, 12.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+                ],
               ),
             ),
           );

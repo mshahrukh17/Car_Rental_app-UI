@@ -30,20 +30,28 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+        padding: const EdgeInsets.only(
+          top: 8.0,
+        ),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Center(
-                  child: Image.asset(
-                'assets/images/frame.png',
-                width: size.width * 0.9,
-                height: size.height * 0.24,
+                  child: Padding(
+                padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                child: Image.asset(
+                  'assets/images/frame.png',
+                  width: size.width * 0.9,
+                  height: size.height * 0.24,
+                ),
               )),
               SizedBox(
                 height: size.height * 0.04,
               ),
-              RowCategory(),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 6.0),
+                child: RowCategory(),
+              ),
               SizedBox(
                 height: size.height * 0.04,
               ),
@@ -64,7 +72,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: size.height * 0.04,
+                height: size.height * 0.01,
               ),
               // CarsList In Component folder
               CarsList(),

@@ -16,3 +16,4 @@ export 'package:car_rental/View/Components/RowCategory.dart';
 export 'package:car_rental/Model/dummymodel.dart';
 export 'package:car_rental/View/Components/Carslist.dart';
 export 'package:car_rental/View/CarsDetail.dart';
+export 'package:car_rental/View/Components/carsinfo.dart';
