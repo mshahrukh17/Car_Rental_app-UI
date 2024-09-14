@@ -1,9 +1,14 @@
 // ignore_for_file: deprecated_member_use
 import '../Export/AllExport.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -20,13 +25,32 @@ class HomePage extends StatelessWidget {
               width: 35,
             )),
         actions: [
-          IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(
-                'assets/icons/cart.svg',
-                color: Colors.black,
-                width: 35,
-              ))
+          bookNow.getbookedcars().isEmpty
+              ? IconButton(
+                  onPressed: ()  {
+                     Navigator.pushNamed(context, '/bookedpage');
+                    setState(() {});
+                  },
+                  icon: SvgPicture.asset(
+                    'assets/icons/cart.svg',
+                    color: Colors.black,
+                    width: 35,
+                  ))
+              : Badge(
+                  alignment: Alignment.topLeft,
+                  backgroundColor: Color(0xfff2B4C59),
+                  label: Text(bookNow.getbookedcars().length.toString()),
+                  child: IconButton(
+                      onPressed: ()  {
+                         Navigator.pushNamed(context, '/bookedpage');
+                        setState(() {});
+                      },
+                      icon: SvgPicture.asset(
+                        'assets/icons/cart.svg',
+                        color: Colors.black,
+                        width: 35,
+                      )),
+                )
         ],
       ),
       body: Padding(
@@ -38,7 +62,7 @@ class HomePage extends StatelessWidget {
             children: [
               Center(
                   child: Padding(
-                padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Image.asset(
                   'assets/images/frame.png',
                   width: size.width * 0.9,

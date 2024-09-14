@@ -79,7 +79,7 @@ class CarsList extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.favorite_border,
-                              color: Colors.red,
+                              color: Colors.black,
                             ),
                             SizedBox(
                               width: 15,
