@@ -32,13 +32,13 @@ class _BookedCarPageState extends State<BookedCarPage> {
               delay: 2.5,
               child: Padding(
                 padding: const EdgeInsets.only(bottom:  8),
-                child: AppButton(onpress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedCar(),));
+                child: AppButton(onpress: ()async{
+                 await Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedCar(),));
                 }, buttontext: "Next"),
               )
             ),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
           "Booked Cars",
@@ -108,7 +108,7 @@ class _BookedCarPageState extends State<BookedCarPage> {
                                               AppText.extra(Colors.black, 16.0),
                                         ),
                                         Text(
-                                          "\$" + cardata.price.toString(),
+                                          "\$${cardata.price.toString()}",
                                           style:
                                               AppText.extra(Colors.red, 15.0),
                                         ),

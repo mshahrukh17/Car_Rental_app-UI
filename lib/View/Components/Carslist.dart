@@ -15,11 +15,12 @@ class CarsList extends StatelessWidget {
         itemCount: cars.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
+          var carsdata = cars[index];
           return GestureDetector(
             onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CarsDetail(cardata: index),
+                  builder: (context) => CarsDetail(cardata: carsdata),
                 )),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 6.0, vertical: 8.0),
@@ -30,14 +31,14 @@ class CarsList extends StatelessWidget {
                 children: [
                   Material(
                     elevation: 5,
-                    color: cars[index].backcolor,
+                    color: carsdata.backcolor,
                     borderRadius: BorderRadius.circular(12),
                     child: Container(
                       margin: EdgeInsets.all(6.0),
                       height: size.height * 0.3,
                       width: size.width * 0.55,
                       decoration: BoxDecoration(
-                          color: cars[index].backcolor,
+                          color: carsdata.backcolor,
                           borderRadius: BorderRadius.circular(12)),
                     ),
                   ),
@@ -47,8 +48,8 @@ class CarsList extends StatelessWidget {
                     left: 30,
                     child: FadeAnimation(
                         delay: 1, child: Hero(
-                          tag: cars[index].image,
-                          child: Image.asset(cars[index].image))),
+                          tag: carsdata.image,
+                          child: Image.asset(carsdata.image))),
                     height: size.height * 0.12,
                   ),
                   Positioned(
@@ -60,11 +61,11 @@ class CarsList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              cars[index].modelname,
+                              carsdata.modelname,
                               style: AppText.extra(Colors.black, 16.0),
                             ),
                             Text(
-                             "\$${cars[index].price.toString()} / day",
+                             "\$${carsdata.price.toString()} / day",
                               style: AppText.extra(Colors.black, 13.0),
                             )
                           ],
@@ -99,21 +100,24 @@ class CarsList extends StatelessWidget {
                   Positioned(
                     top: 0,
                     left: 14,
-                    child: Material(
-                      color: Color(0xfff2B4C59),
-                      elevation: 2,
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6), bottomRight: Radius.circular(6)),
-                      child: Container(
-                        height: 80,
-                        width: 25,
-                        child: FadeAnimation(
-                          delay: 1,
-                          child: FittedBox(
-                            child: RotatedBox(
-                              quarterTurns: -1,
-                              child: Center(
-                                child: Text("Discount",
-                                style: AppText.extra(Colors.white, 12.0),
+                    child: FadeAnimation(
+                      delay: 1,
+                      child: Material(
+                        color: carsdata.backcolor.withOpacity(0.1),
+                        elevation: 2,
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6), bottomRight: Radius.circular(6)),
+                        child: Container(
+                          height: 80,
+                          width: 25,
+                          child: FadeAnimation(
+                            delay: 1,
+                            child: FittedBox(
+                              child: RotatedBox(
+                                quarterTurns: -1,
+                                child: Center(
+                                  child: Text("Discount",
+                                  style: AppText.extra(Colors.white, 12.0),
+                                  ),
                                 ),
                               ),
                             ),

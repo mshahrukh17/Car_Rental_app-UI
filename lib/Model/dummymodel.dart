@@ -82,7 +82,7 @@ final List<carsModel> cars = [
     image: "assets/images/car11.png", 
     modelname: "koenigsegg", 
     price: 170.00, 
-    backcolor: Color.fromARGB(255, 189, 97, 61), 
+    backcolor: Color.fromARGB(255, 245, 8, 0), 
     star: 3.5
     )
 ];

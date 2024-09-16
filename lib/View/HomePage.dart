@@ -27,8 +27,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           bookNow.getbookedcars().isEmpty
               ? IconButton(
-                  onPressed: ()  {
-                     Navigator.pushNamed(context, '/bookedpage');
+                  onPressed: () async {
+                    await Navigator.pushNamed(context, '/bookedpage');
                     setState(() {});
                   },
                   icon: SvgPicture.asset(
@@ -41,8 +41,8 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Color(0xfff2B4C59),
                   label: Text(bookNow.getbookedcars().length.toString()),
                   child: IconButton(
-                      onPressed: ()  {
-                         Navigator.pushNamed(context, '/bookedpage');
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/bookedpage');
                         setState(() {});
                       },
                       icon: SvgPicture.asset(
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 height: size.height * 0.04,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -100,6 +100,20 @@ class _HomePageState extends State<HomePage> {
               ),
               // CarsList In Component folder
               CarsList(),
+
+              // MaterialButton(
+              //   onPressed: () {},
+              //   color: Colors.green,
+              //   child: Text("Press"),
+              //   elevation: 5,
+              //   autofocus: true,
+              //   focusColor: Colors.black,
+              //   shape: BeveledRectangleBorder(
+              //     borderRadius: BorderRadius.circular(4),
+              //   ),
+              //   height: 50,
+              //   minWidth: size.width * 0.8,
+              // )
             ],
           ),
         ),

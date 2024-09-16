@@ -1,7 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import '../../Export/AllExport.dart';
 
 class carsInfo extends StatelessWidget {
-  const carsInfo({super.key});
+  Color color;
+   carsInfo({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -19,96 +22,87 @@ class carsInfo extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: FadeAnimation(
-                  delay: 1,
-                  child: Material(
-                    elevation: 3,
-                    borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      height: size.height * 0.12,
-                      width: size.width * 0.35,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            "Transition",
-                            style: AppText.extra(Color(0xfff2B4C59), 16.0),
+                child: Material(
+                  elevation: 3,
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    height: size.height * 0.12,
+                    width: size.width * 0.35,
+                    decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Transition",
+                          style: AppText.extra(Colors.white, 16.0),
+                        ),
+                        FittedBox(
+                          child: Text(
+                            "Automatic",
+                            style: AppText.extra(Colors.white, 15.0),
                           ),
-                          FittedBox(
-                            child: Text(
-                              "Automatic",
-                              style: AppText.extra(Colors.black, 15.0),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: FadeAnimation(
-                  delay: 1.5,
-                  child: Material(
-                    elevation: 3,
-                    borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      height: size.height * 0.12,
-                      width: size.width * 0.35,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            "Speed",
-                            style: AppText.extra(Color(0xfff2B4C59), 16.0),
+                child: Material(
+                  elevation: 3,
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    height: size.height * 0.12,
+                    width: size.width * 0.35,
+                    decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Speed",
+                          style: AppText.extra(Colors.white, 16.0),
+                        ),
+                        FittedBox(
+                          child: Text(
+                            "200kmph",
+                            style: AppText.extra(Colors.white, 15.0),
                           ),
-                          FittedBox(
-                            child: Text(
-                              "200kmph",
-                              style: AppText.extra(Colors.black, 15.0),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: FadeAnimation(
-                  delay: 2,
-                  child: Material(
-                    elevation: 3,
-                    borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      height: size.height * 0.12,
-                      width: size.width * 0.35,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            "Transition",
-                            style: AppText.extra(Color(0xfff2B4C59), 16.0),
+                child: Material(
+                  elevation: 3,
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    height: size.height * 0.12,
+                    width: size.width * 0.35,
+                    decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Transition",
+                          style: AppText.extra(Colors.white, 16.0),
+                        ),
+                        FittedBox(
+                          child: Text(
+                            "Automatic",
+                            style: AppText.extra(Colors.white, 15.0),
                           ),
-                          FittedBox(
-                            child: Text(
-                              "Automatic",
-                              style: AppText.extra(Colors.black, 15.0),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
