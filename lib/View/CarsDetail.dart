@@ -31,7 +31,7 @@ class _CarsDetailState extends State<CarsDetail> {
           children: [
             SizedBox(
               width: size.width,
-              height: size.height / 2.3,
+              height: size.height / 2.2,
               child: Stack(
                 children: [
                   Positioned(
@@ -43,7 +43,7 @@ class _CarsDetailState extends State<CarsDetail> {
                           bottomLeft: Radius.circular(1500),
                           bottomRight: Radius.circular(50)),
                       child: Container(
-                        height: size.height / 2.3,
+                        height: size.height / 2.2,
                         width: size.width,
                         decoration: BoxDecoration(
                           color: widget.cardata.backcolor,
@@ -51,12 +51,14 @@ class _CarsDetailState extends State<CarsDetail> {
                               bottomLeft: Radius.circular(1500),
                               bottomRight: Radius.circular(50)),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
+                        
+                      ),
+                    ),
+                  ),
+                  Positioned(
                               top: 30,
-                              left: 0,
-                              right: 20,
+                              left: 8,
+                              right: 8,
                               child: FadeAnimation(
                                 delay: 1,
                                 child: Row(
@@ -82,7 +84,7 @@ class _CarsDetailState extends State<CarsDetail> {
                             Positioned(
                                 top: 90,
                                 left: 0,
-                                right: 10,
+                                right: 0,
                                 bottom: 0,
                                 child: Center(
                                   child: Hero(
@@ -92,11 +94,7 @@ class _CarsDetailState extends State<CarsDetail> {
                                         height: size.height * 0.25,
                                       )),
                                 ))
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+
                 ],
               ),
             ),
@@ -127,7 +125,7 @@ class _CarsDetailState extends State<CarsDetail> {
               delay: 1.4,
               child: carsInfo(color: widget.cardata.backcolor,)),
              SizedBox(
-              height: size.height * 0.04,
+             height: size.height * 0.04,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 14.0),
@@ -152,7 +150,7 @@ class _CarsDetailState extends State<CarsDetail> {
                             backgroundImage:
                                 AssetImage('assets/images/person.png'),
                           ),
-                          SizedBox(width: 12),
+                          SizedBox(width: 15),
                           Text("Stephen",
                            style: AppText.extra(Colors.black, 15.0),
                           ),
@@ -224,7 +222,7 @@ class _CarsDetailState extends State<CarsDetail> {
                     buttontext: bookNow.isbook(widget.cardata)
                         ? 'Cancel Booking'
                         : 'Book Car'.toUpperCase(),
-                    color: widget.cardata.backcolor,
+                    color: widget.cardata.backcolor.withOpacity(0.9),
                   )),
             ))
           ],

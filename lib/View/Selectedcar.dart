@@ -16,7 +16,6 @@ class SelectedCar extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8),
             child: AppButton(
                 onpress: () {
-                  print("Total price");
                   // Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedCar(),));
                 },
                 buttontext: "Confirm"),
@@ -37,7 +36,7 @@ class SelectedCar extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 itemCount: bookNow.bookcarlist.length,
                 itemBuilder: (context, index) {
-                  var selectcar = bookNow.bookcarlist[index];
+                  final carsModel selectcar = bookNow.bookcarlist[index];
                   return Padding(
                     padding: const EdgeInsets.only(
                         top: 10, left: 20, right: 20, bottom: 10),

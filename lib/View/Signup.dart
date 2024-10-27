@@ -77,7 +77,7 @@ class SignUp extends StatelessWidget {
               child: FadeAnimation(
                 delay: 1.1,
                 child: OptionalButton(
-                    size, "Continue With Google", Icons.g_mobiledata),
+                    size, "Continue With Google", "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"),
               ),
             ),
             SizedBox(
@@ -87,7 +87,7 @@ class SignUp extends StatelessWidget {
                 child: FadeAnimation(
                   delay: 1.2,
                   child: OptionalButton(
-                      size, "Continue With facebook", Icons.facebook),
+                      size, "Continue With facebook", "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png"),
                 )),
             SizedBox(
               height: 15.0,
@@ -118,7 +118,7 @@ class SignUp extends StatelessWidget {
     );
   }
 
-  Container OptionalButton(Size size, text, icon) {
+  Container OptionalButton(Size size, text, image) {
     return Container(
       height: size.height * 0.07,
       width: size.width * 0.86,
@@ -130,10 +130,7 @@ class SignUp extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Icon(
-            icon,
-            color: Colors.blueAccent,
-          ),
+          Image.network(image),
           Text(
             text,
             style: AppText.extra(Colors.black, 15.0),

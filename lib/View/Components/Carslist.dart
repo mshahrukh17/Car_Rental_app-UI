@@ -85,9 +85,10 @@ class CarsList extends StatelessWidget {
                             SizedBox(
                               width: 15,
                             ),
-                            CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Color(0xfff2B4C59),
+                            Material(
+                              elevation: 5,
+                              color: carsdata.backcolor.withOpacity(0.1),
+                              shape: CircleBorder(),
                               child: Icon(
                                 Icons.arrow_forward,
                                 size: 18,

@@ -1,26 +1,15 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:car_rental/View/Selectedcar.dart';
 
 import '../Export/AllExport.dart';
 
-class BookedCarPage extends StatefulWidget {
-  const BookedCarPage({super.key});
-
-  @override
-  State<BookedCarPage> createState() => _BookedCarPageState();
-}
-
-class _BookedCarPageState extends State<BookedCarPage> {
-  @override
-  void initState() {
-    super.initState();
-    getcars();
-  }
+class BookedCarPage extends StatelessWidget {
+   BookedCarPage({super.key});
 
   getcars() async {
     await bookNow.getbookedcars();
   }
-
-  var selectindex;
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +47,7 @@ class _BookedCarPageState extends State<BookedCarPage> {
                 physics: BouncingScrollPhysics(),
                 itemCount: bookNow.getbookedcars().length,
                 itemBuilder: (context, index) {
-                  selectindex =  index;
-                  var cardata = bookNow.getbookedcars()[index];
+                 final carsModel cardata = bookNow.getbookedcars()[index];
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FadeAnimation(

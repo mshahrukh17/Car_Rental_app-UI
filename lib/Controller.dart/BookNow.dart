@@ -9,7 +9,7 @@ class BookNow {
    if (!isbook(index)) {
      bookcarlist.add(index);
    }
-   print(bookcarlist);
+  //  print(bookcarlist);
   }
 
   void cancelride(index){
